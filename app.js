@@ -166,3 +166,76 @@ console.log(convertToBoolean(["", NaN, undefined]));
 console.log(convertToBoolean([500, 0, "David", "", []]));
 console.log(convertToBoolean([null, "false", true, 0, 1, -1]));
 console.log(convertToBoolean(["", NaN, undefined]));
+
+/* END OF MEDIUM CHALLENGE */
+
+/* HARD CHALLENGE */
+
+/* QUESTION 1 */
+
+function showRating(str) {
+    let rating = '';
+    for (let i = 0; i < Math.floor(Number(str)); ++i) {
+        rating += ' ★';
+    }
+    if (str.includes('.5')) { //if (!Number.isInteger(Number(str))) {
+        rating += ' .';
+    }
+    return rating;
+}
+console.log(showRating("3"));
+console.log(showRating("4.5"));
+console.log(showRating("0.5"))
+
+/* QUESTION 2 */
+function sortLowToHigh(arr) {
+    return arr.sort((a, b) => a - b);
+}
+console.log(sortLowToHigh([20, 40, 10, 30, 50, 10]));
+console.log(sortLowToHigh([5, 10, 0, -5]));
+console.log(sortLowToHigh([3, 2, 1, 0]));
+
+/* HIGH TO LOW */
+/* QUESTION 2 */
+function sortLowToHigh(arr) {
+    return arr.sort((a, b) => b - a);
+}
+console.log(sortLowToHigh([20, 40, 10, 30, 50, 10]));
+console.log(sortLowToHigh([5, 10, 0, -5]));
+console.log(sortLowToHigh([3, 2, 1, 0]));
+
+/* QUESTION 3 */  //FAILED TESTS
+function sortHighToLow(numbers) {
+    return numbers.sort((a, b) => b.price - a.price);
+}
+
+console.log(sortHighToLow([
+    { id: 1, price: 50},
+    { id: 2, price: 30},
+    { id: 3, price: 60},
+    { id: 4, price: 10},]));
+
+    // QUESTION 4 */ WATCH VIDEOS ON YOUTUBE
+
+    /* QUESTION 5 */ 
+   async function postsByUser(userId) {
+    const promise = await fetch("https://jsonplaceholder.typicode.com/posts");
+
+    const result = await promise.json();
+
+    const posts = result.filter(element => element.userId === userId);
+
+    console.log(posts);
+    
+   }
+   postsByUser(4);
+
+   /* QUESTION 6 */
+   async function firstSixIncompleteTodos() {
+    const promise = await fetch("https://jsonplaceholder.typicode.com/todos");
+    const result = await promise.json();
+
+    const incompleteTodos = result.filter(element => element.completed === false).slice(0, 6);
+    console.log(incompleteTodos);
+    }
+    firstSixIncompleteTodos();
